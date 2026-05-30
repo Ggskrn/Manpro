@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT Gasyandra Beauty | Corporate & Informasi Publik</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDF9F2;
+            color: #2D2A24;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, .logo, .nav-links a, .hero-title, .section-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* NAVBAR - warna sesuai dokumen #2E7D32 */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(253, 249, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid #E8E0D6;
+        }
+
+        .nav-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2E7D32;
+            letter-spacing: 1px;
+        }
+        .logo p {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: #8B7355;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 42px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #3D3A35;
+            transition: 0.2s;
+            position: relative;
+        }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #2E7D32;
+            transition: 0.3s;
+        }
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #2E7D32;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: #2E7D32;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, #FDF9F2 0%, #F0EBE3 100%);
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-sub {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2E7D32;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            color: #2E7D32;
+            margin-bottom: 24px;
+        }
+        .hero-desc {
+            font-size: 1rem;
+            color: #5C5A55;
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+        .btn-primary {
+            background: #2E7D32;
+            color: white;
+            border: none;
+            padding: 12px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: #1B5E20;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+        }
+        .hero-visual {
+            flex: 0.8;
+            text-align: center;
+        }
+        .hero-visual i {
+            font-size: 10rem;
+            color: #2E7D32;
+            opacity: 0.15;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid #EBE3D9;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 56px;
+            color: #2E7D32;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 2px;
+            background: #2E7D32;
+            margin: 12px auto 0;
+        }
+
+        /* PRODUK GRID - 4 kategori sesuai dokumen */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        .product-card {
+            background: white;
+            padding: 32px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #EEE6DE;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #2E7D32;
+            box-shadow: 0 12px 28px rgba(46, 125, 50, 0.08);
+        }
+        .product-icon {
+            font-size: 2.8rem;
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: #2E7D32;
+        }
+
+        /* ABOUT + VISI MISI */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .visi-list {
+            list-style: none;
+        }
+        .visi-list li {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+        .visi-list i {
+            color: #2E7D32;
+            font-size: 1.2rem;
+        }
+
+        /* ARTIKEL / BLOG */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        .article-card {
+            background: white;
+            padding: 28px;
+            border-radius: 12px;
+            border-left: 4px solid #2E7D32;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .article-date {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #8B7355;
+            letter-spacing: 2px;
+        }
+        .article-card h3 {
+            margin: 12px 0;
+            color: #2E7D32;
+        }
+
+        /* KONTAK + MAPS */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .lux-input, .lux-textarea {
+            width: 100%;
+            padding: 14px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1.5px solid #DCD2C6;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.2s;
+        }
+        .lux-input:focus, .lux-textarea:focus {
+            border-bottom-color: #2E7D32;
+        }
+        .map-frame {
+            width: 100%;
+            height: 260px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #EBE0D4;
+        }
+        .map-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* NEWSLETTER */
+        .newsletter-box {
+            background: #E8F0E8;
+            border-radius: 24px;
+            text-align: center;
+            padding: 48px 32px;
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 28px auto 0;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .newsletter-form input {
+            flex: 1;
+            background: white;
+            border: 1px solid #D9CEC2;
+            padding: 12px 20px;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+        }
+        .newsletter-form button {
+            border-radius: 40px;
+            padding: 12px 28px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1A2E1A;
+            color: #CFD8C5;
+            padding: 50px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+        }
+        .social-icons a {
+            color: #CFD8C5;
+            margin-right: 24px;
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .social-icons a:hover {
+            color: #2E7D32;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #3A4A3A;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            text-decoration: none;
+            z-index: 999;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 880px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 25px 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-grid, .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 0 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <h1>Gasyandra Beauty</h1>
+            <p>EST. 2020 · SKINCARE</p>
+        </div>
+        <div class="menu-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="navList">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Produk</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#articles">Artikel</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HOME / HERO -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-sub">PT GASYANDRA BEAUTY</div>
+            <h1 class="hero-title">Perawatan Kulit<br>Terpercaya & Berkualitas</h1>
+            <p class="hero-desc">Website resmi PT Gasyandra Beauty – menyediakan produk skincare terbaik untuk kulit sehat dan bercahaya.</p>
+            <a href="#products" class="btn-primary">Lihat Produk <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
+        <div class="hero-visual">
+            <i class="fas fa-leaf"></i>
+        </div>
+    </div>
+</section>
+
+<!-- PRODUK UNGGULAN (Facial Wash, Serum, Sunscreen, Moisturizer) -->
+<section id="products" class="section">
+    <div class="container">
+        <h2 class="section-title">Produk Unggulan</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-hand-sparkles"></i></div>
+                <h3>Facial Wash</h3>
+                <p>Pembersih lembut dengan ekstrak alami, membersihkan tanpa menghilangkan kelembapan alami kulit.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-droplet"></i></div>
+                <h3>Serum</h3>
+                <p>Serum vitamin C & E untuk mencerahkan dan melindungi kulit dari radikal bebas.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-sun"></i></div>
+                <h3>Sunscreen</h3>
+                <p>Perlindungan SPF 50 PA++++, ringan dan tidak lengket, cocok untuk semua jenis kulit.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Moisturizer</h3>
+                <p>Hidrasi maksimal sepanjang hari dengan formula non-comedogenic.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TENTANG KAMI & VISI MISI -->
+<section id="about" class="section">
+    <div class="container about-grid">
+        <div>
+            <h2 class="section-title" style="text-align:left; margin-bottom: 24px;">Tentang Kami</h2>
+            <p style="margin-bottom: 20px;">PT Gasyandra Beauty adalah perusahaan yang bergerak di bidang perawatan kulit (skincare) dengan portofolio produk unggulan meliputi Facial Wash, Serum, Sunscreen, Moisturizer, dan produk perawatan kulit lainnya.</p>
+            <p>Kami berkomitmen menghadirkan produk berkualitas tinggi yang aman, halal, dan terdaftar di BPOM.</p>
+        </div>
+        <div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 24px; color: #2E7D32;">Visi & Misi</h3>
+            <ul class="visi-list">
+                <li><i class="fas fa-check-circle"></i> Menjadi brand skincare terpercaya di Indonesia</li>
+                <li><i class="fas fa-leaf"></i> Mengedepankan bahan alami & ramah lingkungan</li>
+                <li><i class="fas fa-chart-line"></i> Memberdayakan masyarakat melalui edukasi perawatan kulit</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ARTIKEL / BLOG SKINCARE -->
+<section id="articles" class="section">
+    <div class="container">
+        <h2 class="section-title">Artikel & Tips Skincare</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-date"><i class="far fa-calendar-alt"></i> 15 Juni 2026</div>
+                <h3>5 Kesalahan Skincare Pagi Hari</h3>
+                <p>Jangan lewatkan sunscreen meskipun di dalam ruangan. Baca selengkapnya untuk kulit sehat!</p>
+            </div>
+            <div class="article-card">
+                <div class="article-date"><i class="far fa-calendar-alt"></i> 5 Juni 2026</div>
+                <h3>Double Cleansing untuk Kulit Berminyak</h3>
+                <p>Facial wash dan micellar water adalah kombinasi sempurna untuk kulit bersih maksimal.</p>
+            </div>
+            <div class="article-card">
+                <div class="article-date"><i class="far fa-calendar-alt"></i> 28 Mei 2026</div>
+                <h3>Retinol vs Vitamin C: Mana Lebih Dulu?</h3>
+                <p>Aturan pakai serum yang benar untuk hasil optimal tanpa iritasi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAK + GOOGLE MAPS + WHATSAPP -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-wrapper">
+            <div>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" class="lux-input" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" class="lux-input" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="3" id="message" class="lux-textarea" placeholder="Pesan Anda..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                    <p id="formStatus" style="margin-top: 16px; font-style: italic;"></p>
+                </form>
+            </div>
+            <div>
+                <div class="map-frame">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521505712746!2d106.8276865!3d-6.1753924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3c3f9f1b8c1e2b5f!2sJakarta!5e0!3m2!1sid!2sid!4v1712345678901!5m2!1sid!2sid" loading="lazy"></iframe>
+                </div>
+                <p style="margin-top: 16px;"><i class="fas fa-map-marker-alt" style="color:#2E7D32;"></i> Jl. Kebahagiaan No. 88, Jakarta Selatan</p>
+                <p><i class="fas fa-phone-alt" style="color:#2E7D32;"></i> +62 21 1234 5678</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section" style="padding-bottom: 60px;">
+    <div class="container newsletter-box">
+        <i class="fas fa-envelope-open-text" style="font-size: 2rem; color: #2E7D32; margin-bottom: 12px; display: inline-block;"></i>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem;">Dapatkan Promo & Tips Eksklusif</h3>
+        <p>Langganan newsletter kami untuk diskon 10% di pembelian pertama!</p>
+        <form id="newsletterForm" class="newsletter-form">
+            <input type="email" id="newsEmail" placeholder="Alamat Email" required>
+            <button type="submit" class="btn-primary">Berlangganan</button>
+        </form>
+        <p id="newsStatus" style="margin-top: 16px;"></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3 style="color: #E5D5B3;">PT Gasyandra Beauty</h3>
+                <p>Skincare alami untuk semua jenis kulit.</p>
+            </div>
+            <div>
+                <h4>Tautan</h4>
+                <p><a href="#home" style="color:#cfd8c5; text-decoration:none;">Beranda</a><br>
+                <a href="#products" style="color:#cfd8c5; text-decoration:none;">Produk</a><br>
+                <a href="#articles" style="color:#cfd8c5; text-decoration:none;">Artikel</a></p>
+            </div>
+            <div>
+                <h4>Media Sosial</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 PT Gasyandra Beauty - All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<!-- TOMBOL WHATSAPP CHAT -->
+<a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20dengan%20produk%20skincare%20Gasyandra%20Beauty" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    (function() {
+        // Mobile menu toggle
+        const toggleBtn = document.getElementById('mobileToggle');
+        const navList = document.getElementById('navList');
+        if (toggleBtn && navList) {
+            toggleBtn.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+        }
+
+        // Smooth scroll
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const hash = this.getAttribute('href');
+                if (hash && hash !== '#') {
+                    const target = document.querySelector(hash);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                if (navList) {
+                    navList.classList.remove('active');
+                }
+            });
+        });
+
+        // Contact form handler
+        const contactForm = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+                if (name && email && message && name.value.trim() && email.value.trim() && message.value.trim()) {
+                    if (formStatus) {
+                        formStatus.innerHTML = '✅ Pesan terkirim! Admin akan segera menghubungi Anda.';
+                        formStatus.style.color = '#2E7D32';
+                    }
+                    contactForm.reset();
+                } else {
+                    if (formStatus) {
+                        formStatus.innerHTML = '⚠️ Mohon lengkapi seluruh bidang.';
+                        formStatus.style.color = '#c62828';
+                    }
+                }
+            });
+        }
+
+        // Newsletter handler
+        const newsForm = document.getElementById('newsletterForm');
+        const newsStatus = document.getElementById('newsStatus');
+        if (newsForm) {
+            newsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const newsEmail = document.getElementById('newsEmail');
+                if (newsEmail && newsEmail.value.trim()) {
+                    if (newsStatus) {
+                        newsStatus.innerHTML = '🎉 Terima kasih telah berlangganan! Cek email Anda untuk kupon diskon.';
+                        newsStatus.style.color = '#2E7D32';
+                    }
+                    newsForm.reset();
+                } else {
+                    if (newsStatus) {
+                        newsStatus.innerHTML = 'Email tidak boleh kosong.';
+                    }
+                }
+            });
+        }
+    })();
+</script>
+</body>
+</html>
